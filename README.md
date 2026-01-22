@@ -57,6 +57,21 @@ git clone https://github.com/skyconnfig/skill.git
 
 2. The skills are ready to use with Claude Code. Simply reference the skill name when needed.
 
+### 💡 Quick Tips
+
+**Direct Clone:**
+Even without starring, you can directly clone the repository in your terminal:
+```bash
+git clone https://github.com/skyconnfig/skill.git
+```
+If the repository is Public, you can download it directly.
+
+**Check Releases:**
+Click the **Releases** section on the right side of the repository page to find pre-packaged zip files for download.
+
+**Give us a Star ⭐️:**
+If this project helps you, clicking Star is a great way to encourage the developer! After starring, refresh the page to see if the README content has changed (usually loaded dynamically via JS).
+
 ### For Other AI Assistants
 
 Skills can be adapted for other AI assistants that support skill-based architectures. Each skill contains:

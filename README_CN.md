@@ -57,6 +57,21 @@ git clone https://github.com/skyconnfig/skill.git
 
 2. 技能已准备好与Claude Code一起使用。只需在需要时引用技能名称即可。
 
+### 💡 快速提示
+
+**直接克隆：**
+即使不点Star，也可以在终端直接克隆仓库：
+```bash
+git clone https://github.com/skyconnfig/skill.git
+```
+如果仓库是公开的（Public），通常可以直接下载。
+
+**查看 Releases：**
+点击页面右侧的 **Releases** 栏目，看看是否有已经打包好的压缩包供下载。
+
+**顺手点个 Star ⭐️：**
+如果这个项目对你有帮助，点击 Star 也是对开发者的一种鼓励！点完后，刷新页面看看 README 里的内容是否发生了变化（通常是通过 JS 动态加载的）。
+
 ### 其他AI助手
 
 技能可以适应其他支持基于技能的架构的AI助手。每个技能包含：
