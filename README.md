@@ -163,6 +163,7 @@ Each skill may have its own license. Check individual skill directories for lice
 - [GitHub Repository](https://github.com/skyconnfig/skill)
 - [Skill Documentation](./)
 - [Contributing Guide](#contributing)
+- [中文文档](./README_CN.md)
 
 ---
 
