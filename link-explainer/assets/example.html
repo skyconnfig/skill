@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenCode 快速入门 - 简化解释</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #fff5f8 0%, #ffe4ec 50%, #ffd6e4 100%);
+            color: #5a4a5a;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            border: 2px solid rgba(255, 182, 193, 0.3);
+            box-shadow: 0 10px 40px rgba(255, 182, 193, 0.2);
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+            animation: cardEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+        .card:nth-child(7) { animation-delay: 0.7s; }
+        .card:nth-child(8) { animation-delay: 0.8s; }
+
+        @keyframes cardEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            50% {
+                transform: translateY(-10px) scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(255, 150, 180, 0.3);
+            border-color: rgba(255, 130, 160, 0.5);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            50%, 100% { left: 100%; }
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #ff6b9d, #ff8fab, #ffb3c6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(255, 107, 157, 0.3);
+            animation: titlePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        h2 {
+            color: #ff6b9d;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b9d, #ff8fab);
+            animation: underlineExpand 1s ease forwards 0.5s;
+        }
+
+        @keyframes underlineExpand {
+            to { width: 100%; }
+        }
+
+        h3 {
+            color: #ff8fab;
+            margin: 20px 0 15px;
+            font-size: 1.4em;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        h3::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        p {
+            line-height: 1.9;
+            margin-bottom: 18px;
+            color: #7a6a7a;
+            font-size: 1.05em;
+            animation: fadeInText 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInText {
+            to { opacity: 1; }
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.3), rgba(255, 218, 233, 0.3));
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #ffb3c6;
+            animation: highlightPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes highlightPulse {
+            0%, 100% { box-shadow: 0 0 0 rgba(255, 182, 193, 0); }
+            50% { box-shadow: 0 0 20px rgba(255, 182, 193, 0.3); }
+        }
+
+        .step {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.2), rgba(255, 218, 233, 0.2));
+            padding: 20px 25px;
+            border-radius: 15px;
+            margin: 15px 0;
+            border-left: 5px solid #ff8fab;
+            transform: translateX(-20px);
+            opacity: 0;
+            animation: stepSlideIn 0.5s ease forwards;
+        }
+
+        .step:nth-child(1) { animation-delay: 0.3s; }
+        .step:nth-child(2) { animation-delay: 0.5s; }
+        .step:nth-child(3) { animation-delay: 0.7s; }
+        .step:nth-child(4) { animation-delay: 0.9s; }
+
+        @keyframes stepSlideIn {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #ff8fab, #ff6b9d);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 12px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+            animation: numberBounce 1s ease infinite;
+        }
+
+        @keyframes numberBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        .tip {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.2), rgba(255, 218, 233, 0.2));
+            border-left: 5px solid #ff8fab;
+            padding: 20px;
+            border-radius: 0 15px 15px 0;
+            margin: 20px 0;
+            animation: tipSlide 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes tipSlide {
+            to { opacity: 1; }
+        }
+
+        .tip::before {
+            content: "💡 小贴士：";
+            font-size: 1.1em;
+            color: #ff6b9d;
+            font-weight: bold;
+        }
+
+        .tip:hover {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.3), rgba(255, 218, 233, 0.3));
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #7a6a7a;
+            transition: all 0.3s ease;
+        }
+
+        ul li::before {
+            content: "🌸";
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            animation: flowerSway 2s ease-in-out infinite;
+        }
+
+        @keyframes flowerSway {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        ul li:hover {
+            transform: translateX(10px);
+            color: #ff6b9d;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.2), rgba(255, 218, 233, 0.2));
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid rgba(255, 182, 193, 0.3);
+            animation: featureFloat 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-item:nth-child(2) { animation-delay: 0.5s; }
+        .feature-item:nth-child(3) { animation-delay: 1s; }
+
+        @keyframes featureFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .feature-item:hover {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.4), rgba(255, 218, 233, 0.4));
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.3);
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 182, 193, 0.3), transparent);
+            transition: all 0.5s ease;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        .feature-item:hover::before {
+            width: 200px;
+            height: 200px;
+        }
+
+        .emoji {
+            font-size: 3em;
+            margin-bottom: 15px;
+            animation: emojiBounce 1s ease infinite;
+        }
+
+        @keyframes emojiBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .command {
+            background: linear-gradient(135deg, #2d2d44 0%, #3d3d5c 100%);
+            padding: 20px 25px;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            border: 2px solid rgba(255, 182, 193, 0.3);
+            color: #ffd6e4;
+            text-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
+            animation: commandGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes commandGlow {
+            0%, 100% { box-shadow: 0 0 5px rgba(255, 182, 193, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(255, 182, 193, 0.6); }
+        }
+
+        .install-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .install-method {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.2), rgba(255, 218, 233, 0.2));
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(255, 182, 193, 0.3);
+            transition: all 0.4s ease;
+            animation: methodPulse 3s ease-in-out infinite;
+        }
+
+        .install-method:nth-child(2) { animation-delay: 0.5s; }
+        .install-method:nth-child(3) { animation-delay: 1s; }
+        .install-method:nth-child(4) { animation-delay: 1.5s; }
+
+        @keyframes methodPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        .install-method:hover {
+            background: linear-gradient(135deg, rgba(255, 130, 160, 0.3), rgba(255, 180, 200, 0.3));
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(255, 107, 157, 0.3);
+        }
+
+        .platform-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #ff8fab, #ff6b9d);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+            animation: badgeShine 2s ease-in-out infinite;
+        }
+
+        @keyframes badgeShine {
+            0%, 100% { box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4); }
+            50% { box-shadow: 0 4px 25px rgba(255, 107, 157, 0.7); }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 182, 193, 0.2);
+            border-radius: 6px;
+            margin: 25px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff8fab, #ff6b9d, #ffb3c6);
+            border-radius: 6px;
+            width: 0;
+            animation: progressAnimation 2.5s ease forwards 0.5s, progressStripes 1s linear infinite;
+            background-size: 20px 20px;
+        }
+
+        @keyframes progressAnimation {
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes progressStripes {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 0; }
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: progressShine 2s ease-in-out infinite;
+        }
+
+        @keyframes progressShine {
+            0%, 100% { transform: translateX(-100%); }
+            50%, 100% { transform: translateX(100%); }
+        }
+
+        .code-block {
+            background: linear-gradient(135deg, #2d2d44 0%, #3d3d5c 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow-x: auto;
+            border: 2px solid rgba(255, 182, 193, 0.3);
+            color: #ffd6e4;
+            font-family: 'Courier New', monospace;
+            animation: codeBlockPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes codeBlockPulse {
+            0%, 100% { box-shadow: 0 0 5px rgba(255, 182, 193, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(255, 182, 193, 0.5); }
+        }
+
+        .keyboard {
+            background: linear-gradient(135deg, #ff8fab, #ff6b9d);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-family: monospace;
+            border: none;
+            box-shadow: 0 4px 0 #d45d7d, 0 6px 10px rgba(255, 107, 157, 0.3);
+            color: white;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .keyboard:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #d45d7d, 0 8px 15px rgba(255, 107, 157, 0.4);
+        }
+
+        .keyboard:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #d45d7d, 0 3px 5px rgba(255, 107, 157, 0.3);
+        }
+
+        a {
+            color: #ff6b9d;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 600;
+        }
+
+        a::before {
+            content: '🌸';
+            position: absolute;
+            left: -25px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff8fab;
+            text-decoration: none;
+            transform: translateX(5px);
+        }
+
+        a:hover::before {
+            opacity: 1;
+            left: -20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            color: #b0a0b0;
+            animation: footerFadeIn 1s ease forwards 1s;
+            opacity: 0;
+        }
+
+        @keyframes footerFadeIn {
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .install-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🚀 OpenCode 快速入门</h1>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <p>欢迎来到 OpenCode 的世界！这是一个非常聪明的编程助手，它可以像你的队友一样帮你写代码、改 bug、学习新技术。</p>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="emoji">💻</div>
+                    <h3>终端界面</h3>
+                    <p>在黑框框里输入命令来控制电脑</p>
+                </div>
+                <div class="feature-item">
+                    <div class="emoji">🖥️</div>
+                    <h3>桌面应用</h3>
+                    <p>像个普通软件一样安装后打开使用</p>
+                </div>
+                <div class="feature-item">
+                    <div class="emoji">🔌</div>
+                    <h3>IDE 扩展</h3>
+                    <p>装到你常用的代码编辑器里</p>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>🎯 简单来说：</strong>OpenCode 就是一个 AI 编程小助手，它可以帮你读代码、改代码、解释代码，就像有个学霸队友随时待命！
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📦 安装 OpenCode</h2>
+            <p>安装就像下载软件一样简单，选择最适合你的方式：</p>
+
+            <h3>🌍 最简单的方式（推荐）</h3>
+            <div class="command">curl -fsSL https://opencode.ai/install | bash</div>
+            <p><em>复制这行命令，粘贴到终端里运行就行啦！</em></p>
+
+            <h3>📦 用包管理器安装</h3>
+            <div class="install-methods">
+                <div class="install-method">
+                    <div class="platform-badge">🍎 Mac / 🐧 Linux</div>
+                    <div class="command">brew install anomalyco/tap/opencode</div>
+                </div>
+                <div class="install-method">
+                    <div class="platform-badge">🪟 Windows</div>
+                    <div class="command">choco install opencode</div>
+                </div>
+                <div class="install-method">
+                    <div class="platform-badge">📦 NPM (Node.js)</div>
+                    <div class="command">npm install -g opencode-ai</div>
+                </div>
+                <div class="install-method">
+                    <div class="platform-badge">🐳 Docker</div>
+                    <div class="command">docker run -it --rm ghcr.io/anomalyco/opencode</div>
+                </div>
+            </div>
+
+            <div class="tip">
+                如果你用的是 Windows，强烈推荐用 Chocolatey 或 Scoop 安装，一键搞定，超简单！
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>⚙️ 连接 AI 大脑</h2>
+            <p>OpenCode 需要连接一个"AI 大脑"才能工作，这个大脑就是 AI 模型提供商（比如 OpenAI、Anthropic 等）。</p>
+
+            <div class="step">
+                <span class="step-number">1</span>
+                运行连接命令
+                <div class="command">/connect</div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                打开浏览器访问 <strong>opencode.ai/auth</strong> 注册账号
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                填写付款信息（可以先用免费的额度），然后复制你的"钥匙"（API 密钥）
+            </div>
+
+            <div class="step">
+                <span class="step-number">4</span>
+                把钥匙粘贴到终端里
+            </div>
+
+            <div class="tip">
+                <strong>🤔 什么是 API 密钥？</strong><br>
+                想象它就像一把钥匙，只有用这把钥匙才能打开 AI 服务的大门。每个 AI 服务商都会给你一把独特的钥匙。
+            </div>
+
+            <div class="tip">
+                <strong>💡 新手建议：</strong>使用 OpenCode Zen，它是官方帮你挑选好的"好学生"模型，不需要你自己挑选，直接用就行！
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🎯 开始在你的项目里使用</h2>
+            <p>配置好 AI 大脑后，就可以开始用它来帮你干活啦！</p>
+
+            <div class="command">
+cd /path/to/你的项目文件夹<br>
+opencode<br>
+/init
+            </div>
+
+            <div class="highlight">
+                <strong>📝 什么是 AGENTS.md？</strong><br>
+                运行 <span class="keyboard">/init</span> 后，OpenCode 会创建一个 AGENTS.md 文件。这个文件就像是告诉 AI："嘿，这是我们项目的规矩和风格！"
+            </div>
+
+            <div class="tip">
+                <strong>🎯 重要：</strong>记得把这个文件提交到 Git！这样每次 Clone 代码的人都能享受到相同的好体验！
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>💡 常用操作示例</h2>
+
+            <h3>❓ 让 AI 解释代码</h3>
+            <p>看到不懂的代码？直接问它！</p>
+            <div class="code-block">How is authentication handled in @packages/functions/src/api/index.ts</div>
+            <p><strong>技巧：</strong>按 <span class="keyboard">@</span> 键可以快速搜索文件，就像在文件管理器里找文件一样！</p>
+
+            <h3>✨ 添加新功能（推荐用"计划模式"）</h3>
+            <p>先按 <span class="keyboard">Tab</span> 键切换到"计划模式"，这样 AI 只会给你建议，不会直接改代码，防止意外改动！</p>
+            <div class="command">&lt;TAB&gt;</div>
+            <p>然后告诉它你想做什么：</p>
+            <div class="code-block">当用户删除笔记时，我们想把它标记为已删除。然后创建一个页面显示所有被删除的笔记，用户可以选择恢复或彻底删除。</div>
+
+            <div class="tip">
+                <strong>💡 小技巧：</strong>你可以把设计图的截图拖进终端！AI 会看懂你的设计并按照它来写代码！
+            </div>
+
+            <h3>🔧 直接让 AI 修改代码</h3>
+            <p>对于小改动，可以直接让 AI 执行：</p>
+            <div class="code-block">给 /settings 页面加上身份验证功能。参考 @packages/functions/src/notes.ts 里的做法，一样地实现。</div>
+
+            <h3>↩️ 撤销/重做</h3>
+            <p>如果 AI 改的代码不满意，可以用这两个命令：</p>
+            <div class="command">/undo  - 撤销上一步操作<br>
+/redo  - 恢复刚才撤销的操作</div>
+            <p>可以多次使用，想撤回几步就撤回几步！</p>
+        </div>
+
+        <div class="card">
+            <h2>🔗 把对话分享给队友</h2>
+            <p>你和其他人的对话可以分享给团队成员看，方便大家知道你做了什么决策：</p>
+            <div class="command">/share</div>
+            <p>点击回车后，终端会自动复制链接到剪贴板，发给队友就行啦！</p>
+
+            <div class="tip">
+                <strong>🔒 安全提示：</strong>默认情况下对话是私密的，不会自动分享。分享前请确保里面没有敏感信息！
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🎨 把 OpenCode 变得更像你</h2>
+            <p>OpenCode 支持很多个性化设置，让它用起来更顺手：</p>
+            <ul>
+                <li><strong>🎨 主题</strong> - 换个喜欢的颜色风格</li>
+                <li><strong>⌨️ 快捷键</strong> - 设置自己喜欢的按键方式</li>
+                <li><strong>📐 代码格式化</strong> - 设置代码风格（缩进、空格等）</li>
+                <li><strong>⚡ 自定义命令</strong> - 创建自己的常用命令</li>
+                <li><strong>🔧 工具配置</strong> - 选择你喜欢的开发工具</li>
+                <li><strong>🤖 智能体配置</strong> - 设置不同的工作模式</li>
+            </ul>
+            <p>所有这些设置都可以在 <span class="keyboard">/config</span> 命令里找到！</p>
+        </div>
+
+        <div class="card">
+            <h2>📚 接下来可以看什么</h2>
+            <p>你已经掌握了基本用法！接下来可以探索这些内容：</p>
+            <ul>
+                <li><a href="https://opencode.ai/docs/tui/">📖 终端界面使用指南</a> - 了解更多终端技巧</li>
+                <li><a href="https://opencode.ai/docs/cli/">🔧 命令行工具</a> - 用命令完成更多操作</li>
+                <li><a href="https://opencode.ai/docs/agents/">🤖 智能体配置</a> - 让 AI 更懂你的项目</li>
+                <li><a href="https://opencode.ai/docs/tools/">🛠️ 工具配置</a> - 连接你喜欢的开发工具</li>
+                <li><a href="https://opencode.ai/discord">💬 加入 Discord 社区</a> - 和其他用户交流经验</li>
+            </ul>
+
+            <div class="highlight" style="text-align: center; margin-top: 30px;">
+                <h3 style="margin: 0; font-size: 1.5em;">🎉 恭喜你！</h3>
+                <p style="margin: 15px 0 0;">你已经学会了 OpenCode 的基本使用方法！</p>
+                <p>现在就开始用它来提升你的编程效率吧！ 🚀</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>📖 基于 OpenCode 官方文档简化解释 | 生成时间：2026年1月22日</p>
+    </footer>
+</body>
+</html>
