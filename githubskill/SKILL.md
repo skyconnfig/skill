@@ -282,9 +282,144 @@ cp README_CN-multilingual.md /your-project/README_CN.md
 
 #### Documentation
 
-See `readme-templates/multilingual/GUIDE.md` for comprehensive implementation guide including:
+See `readme-templates/SKILL.md` for comprehensive implementation guide including:
 - Step-by-step setup instructions
 - Best practices
 - Common mistakes to avoid
 - Advanced techniques
 - Real-world examples
+
+## 📦 Releases Management
+
+Create, manage, and publish GitHub Releases with automated packaging and upload capabilities.
+
+### View Releases
+
+**List all releases:**
+```bash
+gh release list
+```
+
+**View specific release details:**
+```bash
+gh release view <tag>
+```
+
+**Download release assets:**
+```bash
+gh release download <tag> --pattern "*.zip"
+```
+
+### Create Releases
+
+**Create a new release:**
+```bash
+gh release create v1.0.0 --title "Release v1.0.0" --notes "Release notes here"
+```
+
+**Create release with automatic generation from commits:**
+```bash
+gh release create v1.0.0 --generate-notes
+```
+
+**Create release with draft mode:**
+```bash
+gh release create v1.0.0 --draft --title "Draft Release"
+```
+
+**Create prerelease:**
+```bash
+gh release create v1.0.0-beta --prerelease --title "Beta Release"
+```
+
+### Upload Assets
+
+**Upload file to release:**
+```bash
+gh release upload v1.0.0 ./path/to/asset.zip
+```
+
+**Upload multiple files:**
+```bash
+gh release upload v1.0.0 ./file1.zip ./file2.tar.gz
+```
+
+**Replace existing asset:**
+```bash
+gh release upload v1.0.0 ./new-asset.zip --clobber
+```
+
+### Delete Releases
+
+**Delete a release (keeps tag):**
+```bash
+gh release delete v1.0.0
+```
+
+**Delete release and tag:**
+```bash
+gh release delete v1.0.0 --cleanup-tag
+```
+
+### Automation Scripts
+
+This skill includes automation scripts for common release workflows:
+
+**`scripts/create-release.sh`** - Automated release creation
+```bash
+#!/bin/bash
+VERSION=$1
+ASSETS=("${@:2}")
+
+# Create release with auto-generated notes
+gh release create "$VERSION" --generate-notes
+
+# Upload all provided assets
+for asset in "${ASSETS[@]}"; do
+    gh release upload "$VERSION" "$asset"
+done
+
+echo "Release $VERSION created successfully!"
+```
+
+**`scripts/package-release.sh`** - Package repository for release
+```bash
+#!/bin/bash
+VERSION=$1
+REPO_NAME=${2:-$(basename $(git rev-parse --show-toplevel))}
+
+# Create archive
+git archive --format=zip --output="${REPO_NAME}-${VERSION}.zip" HEAD
+git archive --format=tar.gz --output="${REPO_NAME}-${VERSION}.tar.gz" HEAD
+
+echo "Packaged ${REPO_NAME}-${VERSION}.zip and .tar.gz"
+```
+
+### Release Best Practices
+
+1. **Semantic Versioning**: Use semantic versioning (v1.0.0, v1.0.1, v2.0.0)
+2. **Draft First**: Create as draft, review, then publish
+3. **Asset Naming**: Use clear, descriptive asset names (e.g., `project-v1.0.0-linux-x64.zip`)
+4. **Release Notes**: Include What's Changed, New Features, Bug Fixes, Known Issues
+5. **Multiple Assets**: Provide archives for different platforms (zip, tar.gz)
+6. **Security**: Sign releases with GPG for verification
+
+### Example Workflow
+
+```bash
+# 1. Package the release
+./scripts/package-release.sh v1.0.0
+
+# 2. Create release with notes
+gh release create v1.0.0 --title "v1.0.0 Release" --notes-file CHANGELOG.md
+
+# 3. Upload packaged assets
+gh release upload v1.0.0 project-v1.0.0.zip
+gh release upload v1.0.0 project-v1.0.0.tar.gz
+
+# 4. View the release
+gh release view v1.0.0
+
+# 5. If satisfied, publish (or use --draft=false initially)
+gh release edit v1.0.0 --draft=false
+```
