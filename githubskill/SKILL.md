@@ -188,7 +188,7 @@ git pull origin main
 - **NEVER use --force on shared branches** without explicit user confirmation
 - **Always confirm before destructive operations** (reset --hard, branch deletion)
 - **Warn before operations that may lose data**
-- **Validate remote URLs before adding**
+- **Validate remote URLs before adding`
 
 ## 📝 README Templates
 
@@ -214,6 +214,9 @@ cp README.md /path/to/your/project/README.md
 | `readme-templates/README-simple.md` | Minimalist template for small projects |
 | `readme-templates/README-cli.md` | CLI tool focused template |
 | `readme-templates/README-webapp.md` | Web application template |
+| `readme-templates/multilingual/README-multilingual.md` | **Bilingual (EN/CN) template** |
+| `readme-templates/multilingual/README_CN-multilingual.md` | **Chinese version of bilingual template** |
+| `readme-templates/multilingual/GUIDE.md` | **Implementation guide for bilingual README** |
 
 ### Template Features
 
@@ -221,7 +224,67 @@ cp README.md /path/to/your/project/README.md
 - **Comprehensive Sections** - All essential information included
 - **Easy Customization** - Clear placeholders and sections
 - **Best Practices** - Based on top open source projects
+- **Bilingual Support** - English and Chinese versions included
 
 ### Documentation
 
 See `readme-templates/SKILL.md` for detailed usage guide and examples.
+
+### 🇨🇳 Multilingual README Support
+
+This skill now includes comprehensive support for creating bilingual README files in English and Chinese!
+
+#### What's Included
+
+**For English README:**
+```
+readme-templates/multilingual/README-multilingual.md
+```
+
+**For Chinese README:**
+```
+readme-templates/multilingual/README_CN-multilingual.md
+```
+
+**Implementation Guide:**
+```
+readme-templates/multilingual/GUIDE.md
+```
+
+#### Quick Start for Bilingual README
+
+```bash
+# Navigate to multilingual templates
+cd githubskill/readme-templates/multilingual
+
+# Copy both templates to your project
+cp README-multilingual.md /your-project/README.md
+cp README_CN-multilingual.md /your-project/README_CN.md
+
+# Customize both files with your project details
+```
+
+#### Features
+
+- ✅ Professional bilingual templates (EN/CN)
+- ✅ Consistent structure and formatting
+- ✅ Cross-links between language versions
+- ✅ Detailed implementation guide
+- ✅ Best practices and examples
+- ✅ SEO optimized for both languages
+
+#### Use Cases
+
+- **Open source projects** targeting global audience
+- **Commercial products** in Chinese market
+- **Developer tools** with international users
+- **Any project** expecting Chinese contributors
+
+#### Documentation
+
+See `readme-templates/multilingual/GUIDE.md` for comprehensive implementation guide including:
+- Step-by-step setup instructions
+- Best practices
+- Common mistakes to avoid
+- Advanced techniques
+- Real-world examples
