@@ -189,3 +189,39 @@ git pull origin main
 - **Always confirm before destructive operations** (reset --hard, branch deletion)
 - **Warn before operations that may lose data**
 - **Validate remote URLs before adding**
+
+## 📝 README Templates
+
+This skill includes a comprehensive README template collection for creating professional GitHub project documentation.
+
+### Quick Start
+
+```bash
+# Navigate to templates directory
+cd githubskill/readme-templates
+
+# Copy template to your project
+cp README.md /path/to/your/project/README.md
+
+# Customize for your project
+```
+
+### Available Templates
+
+| Template | Use Case |
+|----------|----------|
+| `readme-templates/README.md` | Full-featured template for open source projects |
+| `readme-templates/README-simple.md` | Minimalist template for small projects |
+| `readme-templates/README-cli.md` | CLI tool focused template |
+| `readme-templates/README-webapp.md` | Web application template |
+
+### Template Features
+
+- **Professional Structure** - Industry-standard README layout
+- **Comprehensive Sections** - All essential information included
+- **Easy Customization** - Clear placeholders and sections
+- **Best Practices** - Based on top open source projects
+
+### Documentation
+
+See `readme-templates/SKILL.md` for detailed usage guide and examples.
