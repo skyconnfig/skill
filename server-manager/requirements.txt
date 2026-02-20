@@ -1,0 +1,15 @@
+# Server Manager Skill Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core dependencies
+pandas>=1.5.0
+openpyxl>=3.0.0
+
+# XML parsing for web.config
+lxml>=4.9.0
+
+# JSON parsing (built-in, no installation needed)
+# Python 3.7+ includes json module
+
+# Optional: for enhanced output
+rich>=13.0.0

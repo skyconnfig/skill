@@ -1,0 +1,96 @@
+{
+  "name": "link-explainer-pink",
+  "description": "将技术文档转换为淡粉色主题的动画 HTML 页面，使用简单易懂的语言解释专业术语。生成适合初学者的可视化学习材料。",
+  "version": "2.0.0",
+  "author": "Sisyphus",
+  "keywords": ["pink-theme", "animation", "beginner-friendly", "html-output", "simplified-explanation"],
+  "category": "documentation",
+  "inputs": [
+    {
+      "name": "url",
+      "type": "string",
+      "description": "要解释的网页 URL",
+      "required": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "页面标题（可选，默认从 URL 提取）",
+      "required": false
+    },
+    {
+      "name": "language",
+      "type": "string",
+      "description": "输出语言（默认：zh-CN）",
+      "required": false,
+      "default": "zh-CN"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "html_file",
+      "type": "string",
+      "description": "生成的 HTML 文件路径"
+    }
+  ],
+  "scripts": [
+    "fetch_content.py",
+    "simplify_content.py",
+    "generate_html.py"
+  ],
+  "assets": [
+    "template.html",
+    "styles.css"
+  ],
+  "features": [
+    "淡粉色渐变背景 (#fff5f8 → #ffe4ec → #ffd6e4)",
+    "卡片弹性入场动画 (cubic-bezier 弹跳效果)",
+    "闪光扫过卡片效果",
+    "标题渐变色和脉冲动画",
+    "下划线展开动画",
+    "步骤编号弹跳效果",
+    "功能卡片浮动动画",
+    "进度条条纹和闪光动画",
+    "命令框发光效果",
+    "键盘按钮悬停/点击效果",
+    "链接悬停花朵效果",
+    "专业术语简单解释",
+    "小贴士提示框",
+    "响应式设计"
+  ],
+  "animations": [
+    "cardEntrance - 卡片弹性缩放入场 (0.8s)",
+    "shimmer - 闪光扫过效果 (3s循环)",
+    "titlePulse - 标题脉冲效果 (3s循环)",
+    "underlineExpand - 下划线展开动画",
+    "sparkle - 图标闪烁 (2s循环)",
+    "stepSlideIn - 步骤滑入效果",
+    "numberBounce - 数字弹跳 (1s循环)",
+    "flowerSway - 花朵摇摆 (2s循环)",
+    "featureFloat - 功能卡片浮动 (3s循环)",
+    "methodPulse - 安装方法脉冲 (3s循环)",
+    "progressStripes - 进度条条纹移动",
+    "progressShine - 进度条闪光扫过",
+    "commandGlow - 命令框发光 (2s循环)",
+    "badgeShine - 徽章闪光 (2s循环)",
+    "codeBlockPulse - 代码块脉冲 (3s循环)",
+    "tipSlide - 提示框滑入",
+    "emojiBounce - emoji 弹跳",
+    "footerFadeIn - 页脚淡入"
+  ],
+  "color_scheme": {
+    "primary": "#ff6b9d",
+    "secondary": "#ff8fab",
+    "accent": "#ffb3c6",
+    "background_start": "#fff5f8",
+    "background_middle": "#ffe4ec",
+    "background_end": "#ffd6e4",
+    "text_primary": "#5a4a5a",
+    "text_secondary": "#7a6a7a",
+    "border": "rgba(255, 182, 193, 0.3)",
+    "shadow": "rgba(255, 182, 193, 0.2)"
+  },
+  "usage_example": "python scripts/fetch_content.py <url> | python scripts/simplify_content.py | python scripts/generate_html.py",
+  "created_at": "2026-01-22",
+  "updated_at": "2026-01-22"
+}

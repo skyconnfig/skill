@@ -1,0 +1,58 @@
+{
+  "patterns": {
+    "pattern_001": {
+      "name": "Minimalist Tech",
+      "category": "style",
+      "style": "minimalism",
+      "colors": {
+        "primary": "#2563eb",
+        "secondary": "#64748b",
+        "background": "#ffffff",
+        "surface": "#f8fafc",
+        "text": "#1e293b",
+        "accent": "#3b82f6"
+      },
+      "typography": {
+        "fontFamily": "Inter, system-ui, sans-serif",
+        "headingWeight": "700",
+        "bodyWeight": "400",
+        "headingSize": "2.5rem",
+        "bodySize": "1rem",
+        "lineHeight": "1.6"
+      },
+      "spacing": {
+        "base": "1rem",
+        "scale": ["0.5rem", "1rem", "1.5rem", "2rem", "3rem", "4rem"],
+        "container": "1200px",
+        "gridGap": "2rem"
+      },
+      "components": {
+        "button": {
+          "borderRadius": "0.5rem",
+          "padding": "0.75rem 1.5rem",
+          "fontWeight": "600",
+          "transition": "all 0.2s ease"
+        },
+        "card": {
+          "borderRadius": "1rem",
+          "shadow": "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+          "padding": "1.5rem"
+        }
+      },
+      "layout": {
+        "type": "grid",
+        "columns": 12,
+        "breakpoints": {
+          "mobile": "640px",
+          "tablet": "768px",
+          "desktop": "1024px",
+          "wide": "1280px"
+        }
+      },
+      "tags": ["minimal", "tech", "clean", "modern"],
+      "examples": ["https://vercel.com", "https://linear.app"]
+    }
+  },
+  "last_updated": "2026-01-22T16:00:00.000000",
+  "total_count": 1
+}
