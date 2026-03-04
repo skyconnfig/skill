@@ -340,6 +340,238 @@ def login(username: str, password: str) -> dict:
 - 询问并等待人工干预
 - 从中断点任务继续执行
 
+### JSON输出错误处理
+
+当大模型在输出大量JSON时发生`JSON Parse error: Unterminated string`错误，通常是因为生成的JSON字符串缺失了结束的引号、逗号或其他分隔符。针对这种情况，可采用以下方法：
+
+---
+
+## ⚠️ 重点：write 工具写入大段 HTML/JS/CSS 报错解决方案
+
+当你使用 `write` 工具写入包含大量 HTML、CSS、JavaScript 代码的文件时，如果内容中包含未转义的特殊字符（换行、引号等），会导致 JSON 解析失败。
+
+**错误症状**：
+```
+[Pasted ⚙ invalid [tool=write, error=Invalid input for tool write: JSON parsing failed: Text: {...HTML内容...}
+Error message: JSON Parse error: Unterminated string
+```
+
+**根本原因**：
+- HTML/CSS/JS 内容中的换行符、多行字符串、未转义的引号破坏了 JSON 字符串格式
+- 内容过长时模型输出被截断，导致字符串未正确闭合
+
+**解决方案**：
+
+#### 方案1：内容拆分写入（推荐）
+
+将大段代码拆分成多个小部分分别写入：
+
+```
+拆分策略：
+- HTML：按 <head>、<body>、<script>、<style> 等标签拆分
+- CSS：按功能模块拆分（变量定义、布局、组件样式等）
+- JS：按函数/类/模块拆分
+```
+
+#### 方案2：使用 read 工具先读取现有内容
+
+如果文件已存在，先用 read 工具读取内容，然后在此基础上进行修改，而不是直接写入完整内容。
+
+#### 方案3：分步创建文件
+
+创建文件时分步骤进行：
+1. 先创建基础结构（HTML骨架）
+2. 再逐步添加 CSS 和 JS
+
+#### 方案4：请求用户协助
+
+当遇到超长内容时：
+1. 先向用户确认是否可以分步写入
+2. 或者请用户提供文件内容，你再进行修改
+3. 说明当前遇到的 JSON 解析限制
+
+#### 方案5：使用代码片段标记
+
+在输出中使用明确的代码块标记，避免模型输出被意外截断：
+```html
+<!-- 文件开头 -->
+<!DOCTYPE html>
+...
+```
+
+---
+
+## ⚠️ 实施流程：分步创建文件的标准操作流程
+
+当用户请求创建包含大量代码（HTML/CSS/JS/其他语言）的文件时，必须按以下流程执行：
+
+### 第一步：确认用户需求
+
+```
+请先向用户确认以下信息：
+1. 文件类型和用途
+2. 是否需要基于现有文件修改
+3. 是否有特定的设计要求或参考
+```
+
+### 第二步：拆分文件结构
+
+将文件按以下原则拆分为多个小部分：
+
+| 文件类型 | 拆分策略 |
+|----------|----------|
+| HTML | 骨架结构 → head → body → 内联脚本/样式 |
+| CSS | 变量定义 → 基础样式 → 组件样式 → 响应式 |
+| JavaScript | 常量/配置 → 工具函数 → 核心逻辑 → 初始化 |
+| Python | 导入 → 常量 → 类定义 → 函数 → main |
+
+### 第三步：分步写入
+
+每一步只写入一个逻辑完整的代码块：
+
+```
+示例：创建 game.html（俄罗斯方块）
+
+步骤1：先创建基础骨架
+```
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏</title>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+</html>
+```
+
+步骤2：添加样式
+```html
+<style>
+/* 变量定义 */
+:root { --color: #fff; }
+/* 基础样式 */
+body { margin: 0; }
+</style>
+```
+
+步骤3：添加脚本
+```html
+<script>
+// 常量
+const COLS = 10;
+// 函数
+function init() { ... }
+</script>
+```
+
+### 第四步：验证每一步
+
+每次写入后，验证：
+- 文件是否能正常打开
+- 是否有语法错误
+- 是否符合用户需求
+
+### 第五步：最终确认
+
+完成所有部分后，请用户确认整体效果是否符合预期。
+
+---
+
+### ⚡ 关键原则
+
+1. **绝不能一次性写入大段代码** - 这会导致 JSON 解析失败
+2. **每个写入操作不超过约 500 行代码** - 保持在安全范围内
+3. **先骨架后内容** - 先创建文件结构，再填充细节
+4. **每步必验证** - 写入后检查是否有错误
+5. **用户确认后再继续** - 大幅修改前先询问用户
+
+### 📝 标准化回复模板
+
+当遇到需要创建大文件的情况时，使用以下回复：
+
+```
+我理解你想创建 [文件名]。
+
+为了避免 JSON 解析错误，我会分步骤创建这个文件：
+
+1. 先创建基础 HTML 结构
+2. 添加 CSS 样式（拆分为 2-3 个部分）
+3. 添加 JavaScript 逻辑（按功能模块拆分）
+
+每个步骤完成后我会进行验证，确认无误后再进行下一步。
+
+请问你对文件有什么具体要求？或者有参考的设计吗？
+```
+
+---
+
+#### 1. 增加输出内容的有效性检查
+在模型生成输出之前，先对输出的JSON格式进行初步验证。使用`JSON.parse`捕获解析错误，定位具体问题：
+
+```javascript
+try {
+    const data = JSON.parse(modelOutput);
+} catch (e) {
+    console.error("JSON Parse Error: ", e.message);
+}
+```
+
+#### 2. 输出分段处理
+如果JSON非常大，可以将输出分成多个较小的块进行处理。每块独立验证后再合并。
+
+#### 3. 确保字符串正确闭合
+生成JSON时，确保所有字符串都用双引号包裹，并正确转义内部特殊字符：
+
+```javascript
+function escapeJsonString(str) {
+    return str.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+}
+```
+
+#### 4. 智能截断输出内容
+限制模型单次生成的JSON字符数量，避免超长输出导致的解析错误：
+
+```javascript
+const MAX_JSON_LENGTH = 1000;
+if (jsonOutput.length > MAX_JSON_LENGTH) {
+    jsonOutput = jsonOutput.slice(0, MAX_JSON_LENGTH);
+}
+```
+
+#### 5. 使用JSON流式处理
+对于大型JSON输出，使用流式解析分批处理：
+
+```javascript
+const JSONStream = require('JSONStream');
+inputStream.pipe(JSONStream.parse('*')).on('data', (data) => {
+    console.log(data);
+});
+```
+
+#### 6. 后处理步骤：自动修复损坏的JSON
+通过正则表达式自动扫描和修复未闭合的字符串：
+
+```javascript
+function fixUnterminatedString(jsonStr) {
+    let fixedStr = jsonStr;
+    if (fixedStr.match(/"[^"]*$/)) {
+        fixedStr = fixedStr + '"';
+    }
+    return fixedStr;
+}
+```
+
+#### 7. 回滚与重试机制
+记录生成过程中的日志，实现从错误位置恢复的机制，必要时重新生成。
+
+#### 核心原则
+- 在生成和解析过程中增加格式校验
+- 分段输出或流式处理大JSON数据
+- 使用自动修复工具修复常见JSON格式问题
+- 优化输出和字符串处理逻辑，避免特殊字符导致问题
+
 ---
 
 ## 激活方式
