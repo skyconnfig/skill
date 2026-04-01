@@ -1,0 +1,80 @@
+# YouTube Search Skill 配置文件示例
+# 复制此文件为 config.yaml 并根据需要修改
+
+# YouTube Data API v3 配置
+youtube:
+  # API密钥（推荐使用环境变量 YOUTUBE_API_KEY）
+  # 获取地址: https://console.cloud.google.com/apis/credentials
+  api_key: "${YOUTUBE_API_KEY}"
+
+  # 搜索结果限制
+  max_results: 50           # 单次最多返回结果数（API限制为50）
+  default_order: "relevance"  # 默认排序: relevance|date|viewCount|rating
+  safe_search: "moderate"     # 安全搜索: none|moderate|strict
+  type: "video"              # 搜索类型: video|channel|playlist
+
+  # 视频过滤
+  video_definition: "any"    # 视频清晰度: any|standard|high|ultra_high
+  video_dimension: "any"     # 视频维度: any|2d|3d
+  video_duration: "any"      # 视频时长: any|short|medium|long
+                            # short=<=4min, medium=4-20min, long=>20min
+
+  # 地区和语言
+  region_code: "US"          # 地区代码 (ISO 3166-1 alpha-2)
+  relevance_language: "zh-CN"  # 相关语言 (BCP 47)
+
+# 缓存配置
+cache:
+  enabled: true              # 启用缓存
+  ttl: 3600                  # 缓存有效期（秒，默认1小时）
+  max_size: 1000            # 最大缓存条目数
+  backend: "memory"         # 后端: memory|file|redis
+
+# 速率限制
+rate_limit:
+  requests_per_second: 10    # 每秒请求数限制
+  daily_quota: 10000         # 每日配额（YouTube API免费配额为10000 units）
+  warn_at_quota_usage: 0.8   # 配额使用率达到80%时警告
+
+# 输出配置
+output:
+  format: "pretty"          # 默认输出格式: pretty|json|markdown|csv
+  include_thumbnails: true   # 包含缩略图URL
+  max_thumb_size: "medium"   # 缩略图大小: default|medium|high|standard
+  include_channel_details: true  # 包含频道详情
+  include_statistics: true   # 包含统计信息（观看、点赞、评论）
+  include_content_details: true  # 包含内容详情（时长、清晰度等）
+
+# 搜索特性
+search:
+  highlight_matches: true    # 高亮匹配关键词（仅某些格式支持）
+  show_pagination: true      # 显示分页信息
+  default_page_size: 10      # 默认页面大小
+  max_page_size: 50          # 最大页面大小
+
+# 日志配置
+logging:
+  level: "info"             # 日志级别: error|warn|info|debug
+  file: "./yt-search.log"   # 日志文件路径
+  max_files: 5              # 最大日志文件数
+  max_size: "10m"           # 单个日志文件最大大小
+
+# 功能开关
+features:
+  auto_suggest: true         # 自动建议关键词
+  trending: true            # 启用热门搜索（功能待实现）
+  transcript_analysis: false  # 字幕分析（需要额外API）
+  comment_analysis: false    # 评论分析（需要额外API）
+
+# 重试配置
+retry:
+  max_attempts: 3            # 最大重试次数
+  initial_delay: 1000        # 初始延迟（毫秒）
+  max_delay: 10000           # 最大延迟（毫秒）
+  backoff_factor: 2          # 指数退避因子
+
+# 代理配置（可选）
+# 如果使用代理，取消注释并修改以下配置
+# proxy:
+#   http: "http://proxy.example.com:8080"
+#   https: "https://proxy.example.com:8080"

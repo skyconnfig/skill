@@ -1,0 +1,5 @@
+# GitHub Search Skill - Python依赖
+# 使用 GitHub API 和 requests 库进行仓库搜索
+
+requests>=2.31.0
+pyyaml>=6.0  # 配置文件解析

@@ -1,0 +1,4 @@
+# YouTube Search Skill - Python依赖
+# 使用 yt-dlp 进行YouTube搜索（免费，无需API密钥）
+
+yt-dlp>=2023.7.6

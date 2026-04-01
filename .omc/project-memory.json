@@ -645,6 +645,73 @@
       ]
     }
   },
-  "hotPaths": [],
+  "hotPaths": [
+    {
+      "path": "yt-search",
+      "accessCount": 1,
+      "lastAccessed": 1775028032825,
+      "type": "directory"
+    },
+    {
+      "path": "yt-search\\SKILL.md",
+      "accessCount": 1,
+      "lastAccessed": 1775028062321,
+      "type": "file"
+    },
+    {
+      "path": "yt-search\\README.md",
+      "accessCount": 1,
+      "lastAccessed": 1775028062404,
+      "type": "file"
+    },
+    {
+      "path": "yt-search\\config.yaml.example",
+      "accessCount": 1,
+      "lastAccessed": 1775028062647,
+      "type": "file"
+    },
+    {
+      "path": "yt-search\\requirements.txt",
+      "accessCount": 1,
+      "lastAccessed": 1775028062691,
+      "type": "file"
+    },
+    {
+      "path": "yt-search\\scripts\\search.py",
+      "accessCount": 1,
+      "lastAccessed": 1775028062756,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\README.md",
+      "accessCount": 1,
+      "lastAccessed": 1775028205098,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\SKILL.md",
+      "accessCount": 1,
+      "lastAccessed": 1775028207909,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\config.yaml.example",
+      "accessCount": 1,
+      "lastAccessed": 1775028210948,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\requirements.txt",
+      "accessCount": 1,
+      "lastAccessed": 1775028214669,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\.env.example",
+      "accessCount": 1,
+      "lastAccessed": 1775028220158,
+      "type": "file"
+    }
+  ],
   "userDirectives": []
 }

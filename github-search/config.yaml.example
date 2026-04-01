@@ -1,0 +1,79 @@
+# GitHub Search Skill 配置文件示例
+# 复制此文件为 config.yaml 并根据需要修改
+
+# GitHub API 配置
+github:
+  # GitHub API Token（强烈建议设置，避免被限流）
+  # 获取地址: https://github.com/settings/tokens
+  # 需要权限: public_repo (只读)
+  token: "${GITHUB_TOKEN}"
+
+  # 搜索结果限制
+  per_page: 100           # 每页最多返回结果数（API最大100）
+  max_pages: 5           # 最多获取页数（最多500条结果）
+  default_sort: "stars"  # 默认排序: stars|forks|updated|pushed
+  default_order: "desc"  # 默认顺序: asc|desc
+
+  # 请求配置
+  timeout: 30            # 请求超时时间（秒）
+  retry_attempts: 3      # 失败重试次数
+  retry_delay: 2         # 重试延迟（秒）
+
+# 缓存配置
+cache:
+  enabled: true          # 启用缓存
+  ttl: 1800              # 缓存有效期（秒，默认30分钟）
+  max_size: 1000        # 最大缓存条目数
+  backend: "memory"     # 后端: memory|file|redis
+
+# 速率限制
+rate_limit:
+  requests_per_minute: 30  # 每分钟最大请求数（认证用户）
+  warn_at_usage: 0.8       # 配额使用率达到80%时警告
+  auto_wait: true          # 自动等待配额恢复
+
+# 输出配置
+output:
+  format: "pretty"        # 默认输出格式: pretty|json|csv|markdown
+  include_languages: true # 显示语言分布
+  include_topics: true    # 显示topics
+  include_license: true   # 显示许可证
+  show_owner_avatar: false # 显示所有者头像
+  truncate_description: 200 # 描述截断长度（0表示不截断）
+
+# 搜索特性
+search:
+  highlight_matches: true   # 高亮匹配关键词
+  show_pagination: true     # 显示分页信息
+  default_page_size: 20     # 默认页面大小
+  max_page_size: 100        # 最大页面大小
+  safe_search: false        # 安全搜索（暂未实现）
+  exclude_forks: false      # 排除fork仓库
+  exclude_archived: false   # 排除归档仓库
+
+# 日志配置
+logging:
+  level: "info"            # 日志级别: error|warn|info|debug
+  file: "./github-search.log"  # 日志文件路径
+  max_files: 5             # 最大日志文件数
+  max_size: "10m"          # 单个日志文件最大大小
+
+# 功能开关
+features:
+  auto_suggest: true       # 自动建议关键词
+  trending: true           # 启用热门搜索（功能待实现）
+  language_detection: false # 自动检测查询语言
+  advanced_filters: true   # 启用高级过滤
+
+# 重试配置
+retry:
+  max_attempts: 3          # 最大重试次数
+  initial_delay: 1         # 初始延迟（秒）
+  max_delay: 60            # 最大延迟（秒）
+  backoff_factor: 2        # 指数退避因子
+
+# 代理配置（可选）
+# 如果使用代理，取消注释并修改以下配置
+# proxy:
+#   http: "http://proxy.example.com:8080"
+#   https: "https://proxy.example.com:8080"
