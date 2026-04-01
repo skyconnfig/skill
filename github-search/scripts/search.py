@@ -28,6 +28,23 @@ if env_path.exists():
     load_dotenv(env_path)
 
 
+def _resolve_env_vars(value):
+    """Recursively resolve ${VAR} placeholders in config values."""
+    if isinstance(value, str):
+        # Replace ${VAR} with environment variable
+        import re
+        def replace_match(match):
+            var_name = match.group(1)
+            return os.getenv(var_name, match.group(0))
+        return re.sub(r'\$\{([^}]+)\}', replace_match, value)
+    elif isinstance(value, dict):
+        return {k: _resolve_env_vars(v) for k, v in value.items()}
+    elif isinstance(value, list):
+        return [_resolve_env_vars(item) for item in value]
+    else:
+        return value
+
+
 def load_config():
     """Load configuration from config.yaml or use defaults."""
     config_path = Path(__file__).parent.parent / "config.yaml"
@@ -73,6 +90,8 @@ def load_config():
         try:
             with open(config_path, "r", encoding="utf-8") as f:
                 user_config = yaml.safe_load(f)
+                # Resolve environment variables in user config
+                user_config = _resolve_env_vars(user_config)
                 # Deep merge
                 for key, value in user_config.items():
                     if key in config and isinstance(config[key], dict):
@@ -81,6 +100,11 @@ def load_config():
                         config[key] = value
         except Exception as e:
             print(f"Warning: Failed to load config.yaml: {e}", file=sys.stderr)
+
+    # Override token from environment (takes precedence over config file)
+    github_token = os.getenv("GITHUB_TOKEN")
+    if github_token and github_token != "${GITHUB_TOKEN}":
+        config["github"]["token"] = github_token
 
     return config
 

@@ -647,21 +647,21 @@
   },
   "hotPaths": [
     {
+      "path": "github-search\\scripts\\search.py",
+      "accessCount": 5,
+      "lastAccessed": 1775029844336,
+      "type": "file"
+    },
+    {
       "path": "github-search\\test_skill.py",
       "accessCount": 4,
       "lastAccessed": 1775028528202,
       "type": "file"
     },
     {
-      "path": "github-search\\scripts\\search.py",
-      "accessCount": 2,
-      "lastAccessed": 1775028458039,
-      "type": "file"
-    },
-    {
       "path": "github-search\\scripts\\setup.py",
-      "accessCount": 2,
-      "lastAccessed": 1775029084807,
+      "accessCount": 3,
+      "lastAccessed": 1775029096852,
       "type": "file"
     },
     {
