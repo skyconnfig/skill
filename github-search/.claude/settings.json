@@ -1,0 +1,11 @@
+{
+  "commands": {
+    "github-search": {
+      "enabled": true,
+      "description": "Search GitHub repositories and return structured results",
+      "allowedTools": ["Bash"],
+      "command": "python ~/.claude/skills/github-search/scripts/search.py $ARGUMENTS",
+      "argumentHint": "<query> [--count N] [--sort stars|forks|updated|pushed] [--language LANG]"
+    }
+  }
+}

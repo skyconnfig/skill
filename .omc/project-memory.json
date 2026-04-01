@@ -647,6 +647,24 @@
   },
   "hotPaths": [
     {
+      "path": "github-search\\test_skill.py",
+      "accessCount": 4,
+      "lastAccessed": 1775028528202,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\scripts\\search.py",
+      "accessCount": 2,
+      "lastAccessed": 1775028458039,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\scripts\\setup.py",
+      "accessCount": 2,
+      "lastAccessed": 1775029084807,
+      "type": "file"
+    },
+    {
       "path": "yt-search",
       "accessCount": 1,
       "lastAccessed": 1775028032825,
@@ -710,6 +728,78 @@
       "path": "github-search\\.env.example",
       "accessCount": 1,
       "lastAccessed": 1775028220158,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\LICENSE",
+      "accessCount": 1,
+      "lastAccessed": 1775028222953,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\CHANGELOG.md",
+      "accessCount": 1,
+      "lastAccessed": 1775028391178,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\.claude\\settings.json",
+      "accessCount": 1,
+      "lastAccessed": 1775028399107,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\lib\\__init__.py",
+      "accessCount": 1,
+      "lastAccessed": 1775028442213,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\lib\\github_api.py",
+      "accessCount": 1,
+      "lastAccessed": 1775028444825,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\lib\\formatter.py",
+      "accessCount": 1,
+      "lastAccessed": 1775028447445,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\lib\\cache.py",
+      "accessCount": 1,
+      "lastAccessed": 1775028449907,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\QUICKSTART.md",
+      "accessCount": 1,
+      "lastAccessed": 1775028601747,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\PROJECT_SUMMARY.md",
+      "accessCount": 1,
+      "lastAccessed": 1775028648934,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\.claude\\github-search.md",
+      "accessCount": 1,
+      "lastAccessed": 1775028690066,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\VERIFICATION.md",
+      "accessCount": 1,
+      "lastAccessed": 1775028720381,
+      "type": "file"
+    },
+    {
+      "path": "github-search\\INDEX.md",
+      "accessCount": 1,
+      "lastAccessed": 1775028755263,
       "type": "file"
     }
   ],

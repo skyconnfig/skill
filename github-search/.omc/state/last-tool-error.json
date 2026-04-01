@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"cd \\\"C:\\\\Users\\\\lixin\\\\.config\\\\opencode\\\\skill\\\\github-search\\\" && python scripts/setup.py << 'EOF'\\ny\\nEOF\",\"timeout\":120000,\"description\":\"Run setup script with auto-yes\"}",
+  "error": "Exit code 1\n\r\n============================================================\r\n  GitHub Search Skill Setup\r\n============================================================\r\n\r\nThis script will set up the github-search skill for Claude Code.\r\n\r\n\r\n============================================================\r\n  Checking Python installation...\r\n============================================================\r\n\r\nTraceback (most recent call last):\r\n  File \"C:\\Users\\lixin\\.config\\opencode\\skill\\github-search\\scri...",
+  "timestamp": "2026-04-01T07:37:48.790Z",
+  "retry_count": 1
+}
