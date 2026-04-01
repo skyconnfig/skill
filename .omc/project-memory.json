@@ -1,0 +1,650 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1775008534803,
+  "projectRoot": "C:\\Users\\lixin\\.config\\opencode\\skill",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "algorithmic-art": {
+      "path": "algorithmic-art",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775008534773,
+      "keyFiles": [
+        "LICENSE.txt",
+        "SKILL.md"
+      ]
+    },
+    "brainstorming": {
+      "path": "brainstorming",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775008534774,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "brand-guidelines": {
+      "path": "brand-guidelines",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775008534774,
+      "keyFiles": [
+        "LICENSE.txt",
+        "SKILL.md"
+      ]
+    },
+    "canvas-design": {
+      "path": "canvas-design",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775008534774,
+      "keyFiles": [
+        "LICENSE.txt",
+        "SKILL.md"
+      ]
+    },
+    "chinese-dev-workflow": {
+      "path": "chinese-dev-workflow",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775008534775,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "command-development": {
+      "path": "command-development",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775008534775,
+      "keyFiles": [
+        "README.md",
+        "SKILL.md"
+      ]
+    },
+    "design-workflow": {
+      "path": "design-workflow",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775008534776,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "doc-coauthoring": {
+      "path": "doc-coauthoring",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775008534776,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "docs-write": {
+      "path": "docs-write",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775008534777,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "docx": {
+      "path": "docx",
+      "purpose": null,
+      "fileCount": 4,
+      "lastAccessed": 1775008534777,
+      "keyFiles": [
+        "docx-js.md",
+        "LICENSE.txt",
+        "ooxml.md",
+        "SKILL.md"
+      ]
+    },
+    "frontend-design": {
+      "path": "frontend-design",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775008534777,
+      "keyFiles": [
+        "LICENSE.txt",
+        "SKILL.md"
+      ]
+    },
+    "frontend-design-system": {
+      "path": "frontend-design-system",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775008534778,
+      "keyFiles": [
+        "frontend-design-system.md"
+      ]
+    },
+    "github-trending-skill": {
+      "path": "github-trending-skill",
+      "purpose": null,
+      "fileCount": 10,
+      "lastAccessed": 1775008534778,
+      "keyFiles": [
+        "config.env",
+        "create_task.bat",
+        "daily_github_trending.bat",
+        "github_trending_summary.json",
+        "install_task.bat"
+      ]
+    },
+    "githubskill": {
+      "path": "githubskill",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775008534778,
+      "keyFiles": [
+        "CHECKLIST.md",
+        "SKILL.md"
+      ]
+    },
+    "internal-comms": {
+      "path": "internal-comms",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775008534779,
+      "keyFiles": [
+        "LICENSE.txt",
+        "SKILL.md"
+      ]
+    },
+    "link-explainer": {
+      "path": "link-explainer",
+      "purpose": null,
+      "fileCount": 6,
+      "lastAccessed": 1775008534779,
+      "keyFiles": [
+        "README.md",
+        "requirements.txt",
+        "run.bat",
+        "run.sh",
+        "skill.json"
+      ]
+    },
+    "mcp-builder": {
+      "path": "mcp-builder",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775008534779,
+      "keyFiles": [
+        "LICENSE.txt",
+        "SKILL.md"
+      ]
+    },
+    "mcp-integration": {
+      "path": "mcp-integration",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775008534780,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "notebooklm-py": {
+      "path": "notebooklm-py",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775008534780,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "paper-to-webpage": {
+      "path": "paper-to-webpage",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1775008534780,
+      "keyFiles": []
+    },
+    "pdf": {
+      "path": "pdf",
+      "purpose": null,
+      "fileCount": 4,
+      "lastAccessed": 1775008534781,
+      "keyFiles": [
+        "forms.md",
+        "LICENSE.txt",
+        "reference.md",
+        "SKILL.md"
+      ]
+    },
+    "planning-with-files": {
+      "path": "planning-with-files",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1775008534781,
+      "keyFiles": [
+        "examples.md",
+        "reference.md",
+        "SKILL.md"
+      ]
+    },
+    "pptx": {
+      "path": "pptx",
+      "purpose": null,
+      "fileCount": 4,
+      "lastAccessed": 1775008534781,
+      "keyFiles": [
+        "html2pptx.md",
+        "LICENSE.txt",
+        "ooxml.md",
+        "SKILL.md"
+      ]
+    },
+    "prompt-lookup": {
+      "path": "prompt-lookup",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775008534782,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "server-manager": {
+      "path": "server-manager",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775008534782,
+      "keyFiles": [
+        "requirements.txt",
+        "SKILL.md"
+      ]
+    },
+    "server-manager-interactive": {
+      "path": "server-manager-interactive",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775008534782,
+      "keyFiles": [
+        "SKILL.md",
+        "test_servers.xlsx"
+      ]
+    },
+    "skill-creator": {
+      "path": "skill-creator",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775008534783,
+      "keyFiles": [
+        "LICENSE.txt",
+        "SKILL.md"
+      ]
+    },
+    "skill-lookup": {
+      "path": "skill-lookup",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775008534783,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "slack-gif-creator": {
+      "path": "slack-gif-creator",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1775008534783,
+      "keyFiles": [
+        "LICENSE.txt",
+        "requirements.txt",
+        "SKILL.md"
+      ]
+    },
+    "spline-3d-integration": {
+      "path": "spline-3d-integration",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775008534784,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "sqlexecl_skill": {
+      "path": "sqlexecl_skill",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1775008534784,
+      "keyFiles": [
+        "data.xls",
+        "demo.txt",
+        "NXY_update.sql",
+        "README.md",
+        "README_CN.md"
+      ]
+    },
+    "superpowers": {
+      "path": "superpowers",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775008534784,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "theme-factory": {
+      "path": "theme-factory",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1775008534784,
+      "keyFiles": [
+        "LICENSE.txt",
+        "SKILL.md",
+        "theme-showcase.pdf"
+      ]
+    },
+    "ui-design": {
+      "path": "ui-design",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775008534785,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "ui-ux-pro-max": {
+      "path": "ui-ux-pro-max",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775008534785,
+      "keyFiles": [
+        "SKILL.md"
+      ]
+    },
+    "web-artifacts-builder": {
+      "path": "web-artifacts-builder",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775008534786,
+      "keyFiles": [
+        "LICENSE.txt",
+        "SKILL.md"
+      ]
+    },
+    "webapp-testing": {
+      "path": "webapp-testing",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775008534786,
+      "keyFiles": [
+        "LICENSE.txt",
+        "SKILL.md"
+      ]
+    },
+    "xlsx": {
+      "path": "xlsx",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1775008534786,
+      "keyFiles": [
+        "LICENSE.txt",
+        "recalc.py",
+        "SKILL.md"
+      ]
+    },
+    "command-development\\examples": {
+      "path": "command-development\\examples",
+      "purpose": "Example code",
+      "fileCount": 2,
+      "lastAccessed": 1775008534787,
+      "keyFiles": [
+        "plugin-commands.md",
+        "simple-commands.md"
+      ]
+    },
+    "design-workflow\\data": {
+      "path": "design-workflow\\data",
+      "purpose": "Data files",
+      "fileCount": 1,
+      "lastAccessed": 1775008534788,
+      "keyFiles": [
+        "database.json"
+      ]
+    },
+    "design-workflow\\scripts": {
+      "path": "design-workflow\\scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 1,
+      "lastAccessed": 1775008534788,
+      "keyFiles": [
+        "database_manager.py"
+      ]
+    },
+    "docx\\scripts": {
+      "path": "docx\\scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 3,
+      "lastAccessed": 1775008534789,
+      "keyFiles": [
+        "document.py",
+        "utilities.py",
+        "__init__.py"
+      ]
+    },
+    "github-trending-skill\\scripts": {
+      "path": "github-trending-skill\\scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 2,
+      "lastAccessed": 1775008534790,
+      "keyFiles": [
+        "email_sender.py",
+        "github_trending_scraper.py"
+      ]
+    },
+    "githubskill\\scripts": {
+      "path": "githubskill\\scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 2,
+      "lastAccessed": 1775008534791,
+      "keyFiles": [
+        "create-release.sh",
+        "package-release.sh"
+      ]
+    },
+    "internal-comms\\examples": {
+      "path": "internal-comms\\examples",
+      "purpose": "Example code",
+      "fileCount": 4,
+      "lastAccessed": 1775008534792,
+      "keyFiles": [
+        "3p-updates.md",
+        "company-newsletter.md",
+        "faq-answers.md"
+      ]
+    },
+    "link-explainer\\assets": {
+      "path": "link-explainer\\assets",
+      "purpose": "Static assets",
+      "fileCount": 2,
+      "lastAccessed": 1775008534792,
+      "keyFiles": [
+        "example.html",
+        "template.html"
+      ]
+    },
+    "link-explainer\\scripts": {
+      "path": "link-explainer\\scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 3,
+      "lastAccessed": 1775008534792,
+      "keyFiles": [
+        "fetch_content.py",
+        "generate_html.py",
+        "simplify_content.py"
+      ]
+    },
+    "mcp-builder\\scripts": {
+      "path": "mcp-builder\\scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 4,
+      "lastAccessed": 1775008534793,
+      "keyFiles": [
+        "connections.py",
+        "evaluation.py",
+        "example_evaluation.xml"
+      ]
+    },
+    "mcp-integration\\examples": {
+      "path": "mcp-integration\\examples",
+      "purpose": "Example code",
+      "fileCount": 3,
+      "lastAccessed": 1775008534793,
+      "keyFiles": [
+        "http-server.json",
+        "sse-server.json",
+        "stdio-server.json"
+      ]
+    },
+    "pdf\\scripts": {
+      "path": "pdf\\scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 8,
+      "lastAccessed": 1775008534794,
+      "keyFiles": [
+        "check_bounding_boxes.py",
+        "check_bounding_boxes_test.py",
+        "check_fillable_fields.py"
+      ]
+    },
+    "pptx\\scripts": {
+      "path": "pptx\\scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 5,
+      "lastAccessed": 1775008534795,
+      "keyFiles": [
+        "html2pptx.js",
+        "inventory.py",
+        "rearrange.py"
+      ]
+    },
+    "server-manager\\scripts": {
+      "path": "server-manager\\scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 4,
+      "lastAccessed": 1775008534796,
+      "keyFiles": [
+        "config_parser.py",
+        "excel_reader.py",
+        "iis_manager.py"
+      ]
+    },
+    "server-manager-interactive\\scripts": {
+      "path": "server-manager-interactive\\scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 1,
+      "lastAccessed": 1775008534796,
+      "keyFiles": [
+        "interactive_manager.py"
+      ]
+    },
+    "skill-creator\\scripts": {
+      "path": "skill-creator\\scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 3,
+      "lastAccessed": 1775008534797,
+      "keyFiles": [
+        "init_skill.py",
+        "package_skill.py",
+        "quick_validate.py"
+      ]
+    },
+    "spline-3d-integration\\examples": {
+      "path": "spline-3d-integration\\examples",
+      "purpose": "Example code",
+      "fileCount": 3,
+      "lastAccessed": 1775008534798,
+      "keyFiles": [
+        "interactive-scene.tsx",
+        "react-spline-wrapper.tsx",
+        "vanilla-embed.html"
+      ]
+    },
+    "ui-ux-pro-max\\data": {
+      "path": "ui-ux-pro-max\\data",
+      "purpose": "Data files",
+      "fileCount": 12,
+      "lastAccessed": 1775008534800,
+      "keyFiles": [
+        "charts.csv",
+        "colors.csv",
+        "icons.csv"
+      ]
+    },
+    "ui-ux-pro-max\\scripts": {
+      "path": "ui-ux-pro-max\\scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 3,
+      "lastAccessed": 1775008534801,
+      "keyFiles": [
+        "core.py",
+        "design_system.py",
+        "search.py"
+      ]
+    },
+    "web-artifacts-builder\\scripts": {
+      "path": "web-artifacts-builder\\scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 3,
+      "lastAccessed": 1775008534803,
+      "keyFiles": [
+        "bundle-artifact.sh",
+        "init-artifact.sh",
+        "shadcn-components.tar.gz"
+      ]
+    },
+    "webapp-testing\\examples": {
+      "path": "webapp-testing\\examples",
+      "purpose": "Example code",
+      "fileCount": 3,
+      "lastAccessed": 1775008534803,
+      "keyFiles": [
+        "console_logging.py",
+        "element_discovery.py",
+        "static_html_automation.py"
+      ]
+    },
+    "webapp-testing\\scripts": {
+      "path": "webapp-testing\\scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 1,
+      "lastAccessed": 1775008534803,
+      "keyFiles": [
+        "with_server.py"
+      ]
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}
