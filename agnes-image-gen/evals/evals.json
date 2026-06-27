@@ -1,0 +1,29 @@
+﻿{
+    "skill_name":  "agnes-image-gen",
+    "evals":  [
+                  {
+                      "files":  [
+
+                                ],
+                      "prompt":  "帮我用 Agnes AI 生成几张猫咪的图片，3张就好",
+                      "id":  1,
+                      "expected_output":  "脚本应生成3张猫咪相关图片，保存在 agnes_images/YYYYMMDD_HHMMSS/ 目录下，并生成 agnes_gallery.html 展示页面"
+                  },
+                  {
+                      "files":  [
+
+                                ],
+                      "prompt":  "用\"赛博朋克,中国风,太空\"这三个主题各生成2张图片，尺寸用1024x768",
+                      "id":  2,
+                      "expected_output":  "脚本应生成6张图片（3个主题各2张），保存在带时间戳的子目录中，并生成 HTML 展示页面"
+                  },
+                  {
+                      "files":  [
+
+                                ],
+                      "prompt":  "帮我生成一张未来城市的图片",
+                      "id":  3,
+                      "expected_output":  "脚本应将\"未来城市\"翻译为英文提示词，调用 API 生成1张图片，保存并生成 HTML 页面"
+                  }
+              ]
+}

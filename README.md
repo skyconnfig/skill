@@ -1,4 +1,4 @@
-# Skill Repository
+﻿# Skill Repository
 
 This repository contains a comprehensive collection of skills for AI assistants, providing specialized capabilities for various tasks including development, design, documentation, and automation.
 
@@ -40,6 +40,8 @@ The skill repository is organized into multiple specialized skill directories, e
 
 ### AI & Automation
 - **notebooklm-py** - Unofficial Google NotebookLM Python API
+- **agnes-image-gen** - 批量图片生成技能，支持根据关键词/提示词批量调用 Agnes Image 2.0 Flash API 生成图片，并自动生成 HTML 展示页面
+
 - **paper-to-webpage** - Transform academic papers into web content
 - **playwright** - Browser automation via Playwright MCP
 - **prompt-lookup** - Discover, retrieve, and improve AI prompts
